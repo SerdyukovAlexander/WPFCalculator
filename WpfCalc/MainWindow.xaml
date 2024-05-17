@@ -26,6 +26,7 @@
             </TextBox.Background>
         </TextBox>
 
+        
         <TextBlock Grid.Row="0" Grid.Column="1" Text="X:" Margin="50 70 0 0" FontFamily="Impact" Foreground="#0ABAB5" />
         <TextBox x:Name="inputX" Grid.Row="0" Grid.Column="1" Margin="60 70 0 30" SelectionBrush="#0ABAB5" >
             <TextBox.Background>
