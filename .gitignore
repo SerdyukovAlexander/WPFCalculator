@@ -1,0 +1,17 @@
+﻿*.pdb
+*.dll
+*.cache
+WpfCalc/WpfCalc.csproj
+WpfCalc/Properties/Settings.settings
+WpfCalc/Properties/Settings.Designer.cs
+WpfCalc/Properties/Resources.Designer.cs
+WpfCalc/Properties/AssemblyInfo.cs
+WpfCalc/Properties/Resources.resx
+WpfCalc/obj/Debug/WpfCalc_MarkupCompile.lref
+WpfCalc/obj/Debug/WpfCalc.csproj.FileListAbsolute.txt
+WpfCalc/obj/Debug/MainWindow.g.i.cs
+WpfCalc/obj/Debug/MainWindow.g.cs
+WpfCalc/obj/Debug/App.g.i.cs
+WpfCalc/obj/Debug/App.g.cs
+WpfCalc/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+*.vsidx
