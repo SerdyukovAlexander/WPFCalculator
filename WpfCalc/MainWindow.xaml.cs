@@ -25,12 +25,13 @@ namespace WpfCalc
             InitializeComponent();
         }
 
-        private void Showresult_Click(object sender, RoutedEventArgs e)
+        public void Showresult_Click(object sender, RoutedEventArgs e)
         {
             string input = inputExpression.ToString();
+            double x = Convert.ToDouble(inputX.Text);
+
             string rpn = Infix_To_RPN.InfixToRPN(input);
-            
-            double result = Calculate_RPN.CalculateRPN(rpn);
+            double result = Calculate_RPN.CalculateRPN(rpn, x);
             resultstr.Text = result.ToString();
         }
     }

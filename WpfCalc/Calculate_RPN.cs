@@ -8,7 +8,7 @@ namespace WpfCalc
 {
     public class Calculate_RPN
     {
-        public static double CalculateRPN(string rpn)
+        public static double CalculateRPN(string rpn, double input_x)
         {
             string[] tokens = rpn.Split(' ');
             Stack<double> numberStack = new Stack<double>();
@@ -19,6 +19,12 @@ namespace WpfCalc
                 {
                     numberStack.Push(number);
                 }
+
+                else if (token == "x")
+                {
+                    numberStack.Push(input_x);
+                }
+
                 else if (numberStack.Count >= 2)
                 {
                     double operand2 = numberStack.Pop();

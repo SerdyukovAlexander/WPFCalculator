@@ -53,6 +53,10 @@ namespace WpfCalc
                         operatorStack.Pop();
                     }
                 }
+                else if (token == "x")
+                {
+                    rpn += "x" + " ";
+                }
             }
 
             while (operatorStack.Count > 0)
