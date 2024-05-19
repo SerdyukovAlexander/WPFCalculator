@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCalc"
         mc:Ignorable="d"
-        Title="Calculator" Height="400" Width="700">
+        Title="Calculator" Height="600" Width="750">
     <Grid x:Name="MainRoot" Background="#4C5866">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -18,25 +18,65 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Введите выражение:" Margin="23 0 0 100" FontFamily="Impact" Foreground="#0ABAB5" />
-        <TextBox x:Name="inputExpression" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,0,100"  SelectionBrush="#0ABAB5" >
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Введите выражение:" Margin="25,0,0,80" FontFamily="Impact" Foreground="#0ABAB5" />
+        <TextBox x:Name="inputExpression" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,0,70"  SelectionBrush="#0ABAB5" >
             <TextBox.Background>
                 <ImageBrush/>
             </TextBox.Background>
         </TextBox>
 
-        
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="X:" Margin="50 70 0 0" FontFamily="Impact" Foreground="#0ABAB5" />
-        <TextBox x:Name="inputX" Grid.Row="0" Grid.Column="1" Margin="60 70 0 30" SelectionBrush="#0ABAB5" >
+        <TextBlock Grid.Row="1" Grid.Column="4" Text="начало:" Margin="30,0,0,50" FontFamily="Impact" Foreground="#0ABAB5" />
+        <TextBox x:Name="beginX" Grid.Row="1" Grid.Column="4" Margin="30,20,0,50"  SelectionBrush="#0ABAB5" >
             <TextBox.Background>
                 <ImageBrush/>
             </TextBox.Background>
         </TextBox>
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="Результат:" Margin="80,7,0,100" Foreground="#0ABAB5" FontFamily="Impact"/>
-        <TextBlock Grid.Column="2" Margin="0,128,0,100" x:Name="resultstr" Grid.RowSpan="2" RenderTransformOrigin="0.509,-0.063"/>
-        <Button Grid.Column="2" Grid.Row="2" Content="Вычисление" Margin="0 0 0 100" Click="Showresult_Click" Background="#4C5866" FontFamily="Impact" Foreground="#0ABAB5	"/>
+        <TextBlock Grid.Row="2" Grid.Column="4" Text="конец:" Margin="30,0,0,50" FontFamily="Impact" Foreground="#0ABAB5" />
+        <TextBox x:Name="endX" Grid.Row="2" Grid.Column="4" Margin="30,20,0,50"  SelectionBrush="#0ABAB5" >
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
+
+        <TextBlock Grid.Row="3" Grid.Column="4" Text="шаг:" Margin="30,0,0,50" FontFamily="Impact" Foreground="#0ABAB5" />
+        <TextBox x:Name="stepX" Grid.Row="3" Grid.Column="4" Margin="30,20,0,50"  SelectionBrush="#0ABAB5" >
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
+
+        <TextBlock Grid.Row="4" Grid.Column="4" Text="маштаб:" Margin="30,0,0,50" FontFamily="Impact" Foreground="#0ABAB5" />
+        <TextBox x:Name="scale" Grid.Row="4" Grid.Column="4" Margin="30,20,0,50"  SelectionBrush="#0ABAB5" >
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
+
+
+        <Canvas x:Name="graphCanvas" Width="501" Height="301" Margin="82,79,118,10" Grid.ColumnSpan="5" Grid.RowSpan="4" Background="White" RenderTransformOrigin="0.502,0.518" >
+            <Polyline x:Name="polyline" Stroke="Red" StrokeThickness="1"  HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="2" Canvas.Top="1" Height="300" Width="500" >
+                <Polyline.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-360"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Polyline.RenderTransform>
+
+            </Polyline>
+
+        </Canvas>
+
+
+
+
+        <Button Grid.Column="1" Grid.Row="4" Content="Вычисление" Margin="122,10,18,60" Click="Showresult_Click" Background="#4C5866" FontFamily="Impact" Foreground="#0ABAB5" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>
