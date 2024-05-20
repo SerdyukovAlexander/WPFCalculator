@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCalc"
+        xmlns:wf="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
         mc:Ignorable="d"
         Title="Calculator" Height="600" Width="750">
     <Grid x:Name="MainRoot" Background="#4C5866">
@@ -59,17 +60,19 @@
 
 
         <Canvas x:Name="graphCanvas" Width="501" Height="301" Margin="82,79,118,10" Grid.ColumnSpan="5" Grid.RowSpan="4" Background="White" RenderTransformOrigin="0.502,0.518" >
-            <Polyline x:Name="polyline" Stroke="Red" StrokeThickness="1"  HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="2" Canvas.Top="1" Height="300" Width="500" >
-                <Polyline.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-1" ScaleY="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-360"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Polyline.RenderTransform>
 
-            </Polyline>
+            <Grid HorizontalAlignment="Left" Height="301" Canvas.Left="-10" VerticalAlignment="Top" Width="511" >
+                <WindowsFormsHost Margin="9,0,0,-1">
+                    <wf:Chart x:Name="Chart1" >
+                        <wf:Chart.Series>
+                            <wf:Series ChartType="Column"/>
+                        </wf:Chart.Series>
+                        <wf:Chart.ChartAreas>
+                            <wf:ChartArea/>
+                        </wf:Chart.ChartAreas>
+                    </wf:Chart>
+                </WindowsFormsHost>
+            </Grid>
 
         </Canvas>
 

@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\visualStudioProjects\\WpfCalc\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|D:\\visualStudioProjects\\WpfCalc\\wpfcalc\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|solutionrelative:wpfcalc\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|d:\\visualstudioprojects\\wpfcalc\\wpfcalc\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|D:\\visualStudioProjects\\WpfCalc\\wpfcalc\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|solutionrelative:wpfcalc\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|D:\\visualStudioProjects\\WpfCalc\\wpfcalc\\calculate_rpn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|solutionrelative:wpfcalc\\calculate_rpn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|d:\\visualstudioprojects\\wpfcalc\\wpfcalc\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|solutionrelative:wpfcalc\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|D:\\visualStudioProjects\\WpfCalc\\wpfcalc\\infix_to_rpn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|solutionrelative:wpfcalc\\infix_to_rpn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|D:\\visualStudioProjects\\WpfCalc\\wpfcalc\\calculate_rpn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962C2A55-BAD3-45B5-BF53-4BBCC214BF03}|WpfCalc\\WpfCalc.csproj|solutionrelative:wpfcalc\\calculate_rpn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,37 +26,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Calculate_RPN.cs",
               "DocumentMoniker": "D:\\visualStudioProjects\\WpfCalc\\WpfCalc\\Calculate_RPN.cs",
               "RelativeDocumentMoniker": "WpfCalc\\Calculate_RPN.cs",
               "ToolTip": "D:\\visualStudioProjects\\WpfCalc\\WpfCalc\\Calculate_RPN.cs",
               "RelativeToolTip": "WpfCalc\\Calculate_RPN.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAtwDUAAAAIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T09:58:23.066Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\visualStudioProjects\\WpfCalc\\WpfCalc\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WpfCalc\\MainWindow.xaml.cs",
               "ToolTip": "D:\\visualStudioProjects\\WpfCalc\\WpfCalc\\MainWindow.xaml.cs",
               "RelativeToolTip": "WpfCalc\\MainWindow.xaml.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAtwEQAAAAMAAAA",
+              "ViewState": "AQIAACcAAAAAAAAAAAAowD0AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-16T13:10:01.116Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\visualStudioProjects\\WpfCalc\\WpfCalc\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WpfCalc\\MainWindow.xaml",
@@ -68,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Infix_To_RPN.cs",
               "DocumentMoniker": "D:\\visualStudioProjects\\WpfCalc\\WpfCalc\\Infix_To_RPN.cs",
               "RelativeDocumentMoniker": "WpfCalc\\Infix_To_RPN.cs",
@@ -76,7 +76,8 @@
               "RelativeToolTip": "WpfCalc\\Infix_To_RPN.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T13:09:39.57Z"
+              "WhenOpened": "2024-05-16T13:09:39.57Z",
+              "EditorCaption": ""
             }
           ]
         }

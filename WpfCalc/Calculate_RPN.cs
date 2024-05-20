@@ -8,7 +8,7 @@ namespace WpfCalc
 {
     public class Calculate_RPN
     {
-        public static double CalculateRPN(string rpn, int coordinate_X)
+        public static double CalculateRPN(string rpn, double coordinate_X)
         {
             string[] tokens = rpn.Split(' ');
             Stack<double> numberStack = new Stack<double>();
