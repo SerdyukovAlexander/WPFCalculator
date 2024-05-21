@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfCalc"
         xmlns:wf="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
         mc:Ignorable="d"
-        Title="Calculator" Height="600" Width="750">
+        Title="Calculator" Height="600" Width="950">
     <Grid x:Name="MainRoot" Background="#4C5866">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -29,6 +29,16 @@
                 <ImageBrush/>
             </TextBox.Background>
         </TextBox>
+
+        <TextBlock Grid.Row="0" Text="если идет запись основного выражения - писать все через пробел (4  +  x  *  7  -  1). Если идет запись выражения внутрь функции - писать без пробела (tan(x^3+4)  +  8)" FontSize="12" Margin="5,32,5,45" FontFamily="Palatino Linotype" Foreground="#0ABAB5" Grid.ColumnSpan="5" />
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="x ^ a - возведение x в степень а" Margin="0,24,92,49" FontSize="12" FontFamily="Century" Foreground="#0ABAB5" Grid.ColumnSpan="2" />
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="sin(x) - синус х" Margin="0,49,92,27" FontSize="12" FontFamily="Century" Foreground="#0ABAB5" Grid.ColumnSpan="2" />
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="cos(x) - косинус x" Margin="0,76,92,5" FontSize="12" FontFamily="Century" Foreground="#0ABAB5" Grid.ColumnSpan="2" />
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="tan(x) - тангенс х" Margin="0,0,92,81" FontSize="12" FontFamily="Century" Foreground="#0ABAB5" Grid.ColumnSpan="2" />
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="ctn(x) - котангенс х" Margin="0,16,92,65" FontSize="12" FontFamily="Century" Foreground="#0ABAB5" Grid.ColumnSpan="2" />
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="sqr(x) - квадратный корень из х" Margin="0,32,92,49" FontSize="12" FontFamily="Century" Foreground="#0ABAB5" Grid.ColumnSpan="2" />
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="srt(a,b) - корень степени а из числа b" Margin="0,48,92,32" FontSize="12" FontFamily="Century" Foreground="#0ABAB5" Grid.ColumnSpan="2" />
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="log(a,b) - логарифм по основанию а из числа b" Margin="0,65,43,15" FontSize="12" FontFamily="Century" Foreground="#0ABAB5" Grid.ColumnSpan="2" />
 
         <TextBlock Grid.Row="1" Grid.Column="4" Text="начало:" Margin="30,0,0,50" FontFamily="Impact" Foreground="#0ABAB5" />
         <TextBox x:Name="beginX" Grid.Row="1" Grid.Column="4" Margin="30,20,0,50"  SelectionBrush="#0ABAB5" >
