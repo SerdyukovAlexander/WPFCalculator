@@ -19,15 +19,18 @@ namespace WpfCalc
                 { "+", 1 },
                 { "-", 1 },
                 { "*", 2 },
-                { "/", 2 }
+                { "/", 2 },
+                { "^", 3 },
             };
 
             foreach (string token in tokens)
             {
+
                 if (double.TryParse(token, out double number))
                 {
                     rpn += number + " ";
                 }
+
                 else if (precedence.ContainsKey(token))
                 {
                     while (operatorStack.Count > 0 &&
@@ -38,10 +41,12 @@ namespace WpfCalc
                     }
                     operatorStack.Push(token);
                 }
+
                 else if (token == "(")
                 {
                     operatorStack.Push(token);
                 }
+
                 else if (token == ")")
                 {
                     while (operatorStack.Count > 0 && operatorStack.Peek() != "(")
@@ -53,9 +58,15 @@ namespace WpfCalc
                         operatorStack.Pop();
                     }
                 }
+
                 else if (token == "x")
                 {
                     rpn += "x" + " ";
+                }
+
+                else if (token.Contains("sin") || token.Contains("cos") || token.Contains("tan") || token.Contains("ctn") || token.Contains("log") || token.Contains("sqr") || token.Contains("srt"))
+                {
+                    rpn += token + " ";
                 }
             }
 

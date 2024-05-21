@@ -60,7 +60,7 @@ namespace WpfCalc
 
             Draw_Graphic(coordinatesX, coordinatesY, scale_x);
         }
-            
+
 
         public void Showresult_Click(object sender, RoutedEventArgs e)
         {
