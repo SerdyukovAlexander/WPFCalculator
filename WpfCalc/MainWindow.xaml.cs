@@ -64,12 +64,13 @@ namespace WpfCalc
 
         public void Showresult_Click(object sender, RoutedEventArgs e)
         {
-            string input = inputExpression.ToString();
+            string[] input = inputExpression.ToString().Split(' ');
+            string expression1 = input[1];
             double beginstepX = Convert.ToDouble(beginX.Text);
             double endstepX = Convert.ToDouble(endX.Text);
             double step_x = Convert.ToDouble(stepX.Text);
             int scaleX = Convert.ToInt32(scale.Text);
-            string rpn = Infix_To_RPN.InfixToRPN(input);
+            string rpn = Infix_To_RPN.InfixToRPN(expression1);
 
             Сalculating_Coordinates(rpn, beginstepX, endstepX, step_x, scaleX);
         }

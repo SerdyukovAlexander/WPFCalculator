@@ -10,7 +10,32 @@ namespace WpfCalc
     {
         public static string InfixToRPN(string infix)
         {
-            string[] tokens = infix.Split(' ');
+            //log(10,sin(x^2)) или (х*4,5-6*(12-4)) => (x * 4,5 - 6 * ( 12 - 4 ))
+            //метод для нормального разделения токенов
+            string allNumbers = "0123456789,x";
+            string allOperators = "+-*/^()";
+            string[] tokens = new string[1];
+            string expUpdate = "";
+            if (!infix.Contains("sin") && !infix.Contains("cos") && !infix.Contains("tan") && !infix.Contains("ctn") && !infix.Contains("sqr") && !infix.Contains("srt") && !infix.Contains("log"))
+            {
+                for (int i = 0; i<infix.Length; i++)
+                {
+                    if (allNumbers.Contains(infix[i]))
+                    {
+                        expUpdate += infix[i];
+                    }
+                    else if (allOperators.Contains(infix[i]))
+                    {
+                        expUpdate += " " + infix[i] + " ";
+                    }
+                }
+                tokens = expUpdate.Split(' ');
+            }
+            else
+            {
+                tokens[0] = infix;
+            }
+
             string rpn = "";
             Stack<string> operatorStack = new Stack<string>();
 
