@@ -53,11 +53,13 @@ namespace WpfCalc
             while (coordinateX <= endSt)
             {
                 double coordinateY = CalculationRPN.CalculateRPN(str_rpn, coordinateX);
+
                 if (!double.IsInfinity(coordinateY))
                 {
                     coordinatesX.Add(coordinateX);
                     coordinatesY.Add(coordinateY);
                 }
+
                 coordinateX += step_X;
                 coordinateX = Math.Round(coordinateX, 3);
             }

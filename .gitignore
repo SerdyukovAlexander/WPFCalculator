@@ -22,3 +22,7 @@ WpfCalc/obj/Debug/WpfCalc.g.resources
 WpfCalc/Calculate_RPN.cs
 WpfCalc/Calculate_Coordinates.cs
 WpfCalc/Infix_To_RPN.cs
+*.config
+App.xaml
+*.resources
+App.xaml.cs
