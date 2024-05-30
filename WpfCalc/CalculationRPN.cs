@@ -55,7 +55,7 @@ namespace WpfCalc
                     {
                         numberStack.Push(Math.Log(b1, a1));
                     }
-                    if (token.Substring(0, 3) == "srt")
+                    else if (token.Substring(0, 3) == "srt")
                     {
                         numberStack.Push(Math.Pow(b1, 1 / a1));
                     }

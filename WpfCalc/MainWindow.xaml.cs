@@ -53,9 +53,13 @@ namespace WpfCalc
             while (coordinateX <= endSt)
             {
                 double coordinateY = CalculationRPN.CalculateRPN(str_rpn, coordinateX);
-                coordinatesX.Add(coordinateX);
-                coordinatesY.Add(coordinateY);
+                if (!double.IsInfinity(coordinateY))
+                {
+                    coordinatesX.Add(coordinateX);
+                    coordinatesY.Add(coordinateY);
+                }
                 coordinateX += step_X;
+                coordinateX = Math.Round(coordinateX, 3);
             }
 
             DrawGraphic(coordinatesX, coordinatesY, scale_x);

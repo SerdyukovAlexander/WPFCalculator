@@ -10,41 +10,60 @@ namespace WpfCalc
     {
         public static string InfixToRPN(string infix)
         {
-            string allNumbers = "0123456789,x";
+            string allNumbers = "0123456789";
             string allOperators = "+-*/^";
             string wordInExpression = "sincotagrl";
             string[] tokens = new string[1];
             string expUpdate = "";
-            if (!infix.Contains("sin") && !infix.Contains("cos") && !infix.Contains("tan") && !infix.Contains("ctn") && !infix.Contains("sqr") && !infix.Contains("srt") && !infix.Contains("log"))
+            
+            for (int i = 0; i<infix.Length; i++)
             {
-                for (int i = 0; i < infix.Length; i++)
+                if (allNumbers.Contains(infix[i]))
                 {
-                    if (allNumbers.Contains(infix[i]))
+                    expUpdate += infix[i];
+                }
+                else if (allOperators.Contains(infix[i]))
+                {
+                    expUpdate +=" " + infix[i] + " ";
+                }
+                else if (infix[i]=='x')
+                {
+                    expUpdate += "x";
+                }
+                else if (infix[i]=='(' || infix[i]==')')
+                {
+                    expUpdate += infix[i];
+                }
+                else if (wordInExpression.Contains(infix[i]))
+                {
+                    int cntOpenBrackets = 0;
+                    int cntCloseBrackets = 0;
+                    while (true)
                     {
-                        expUpdate += infix[i];
-                    }
-                    else if (allOperators.Contains(infix[i]) || Convert.ToString(infix[i]) == "(" || Convert.ToString(infix[i]) == ")")
-                    {
-                        expUpdate += " " + infix[i] + " ";
+                        if (infix[i]=='(')
+                        {
+                            cntOpenBrackets += 1;
+                            expUpdate += infix[i];
+                            i += 1;
+                        }
+                        else if (infix[i]==')')
+                        {
+                            cntCloseBrackets += 1;
+                            expUpdate += infix[i];
+                            if (cntOpenBrackets==cntCloseBrackets)
+                                break;
+                            i += 1;
+                        }
+                        else
+                        {
+                            expUpdate += infix[i];
+                            i += 1;
+                        }
+                        
                     }
                 }
-                tokens = expUpdate.Split(' ');
             }
-            else
-            {
-                for (int k = 0; k < infix.Length; k++)
-                {
-                    if (allOperators.Contains(infix[k]))
-                    {
-                        expUpdate += " " + infix[k] + " ";
-                    }
-                    else
-                    {
-                        expUpdate += infix[k];
-                    }
-                }
-                tokens = expUpdate.Split(' ');
-            }
+            tokens = expUpdate.Split(' ');
 
             string rpn = "";
             Stack<string> operatorStack = new Stack<string>();
