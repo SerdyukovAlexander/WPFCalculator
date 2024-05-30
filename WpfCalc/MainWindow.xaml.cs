@@ -32,7 +32,7 @@ namespace WpfCalc
             
         }
         
-        private void Draw_Graphic(List<double> coordinates_x, List<double> coordinates_y, int m)
+        private void DrawGraphic(List<double> coordinates_x, List<double> coordinates_y, int m)
         {
             Chart1.Series[0].Points.Clear();
             Chart1.Series[0].ChartType = DataVis.Charting.SeriesChartType.Line;
@@ -52,13 +52,13 @@ namespace WpfCalc
 
             while (coordinateX <= endSt)
             {
-                double coordinateY = Calculate_RPN.CalculateRPN(str_rpn, coordinateX);
+                double coordinateY = CalculationRPN.CalculateRPN(str_rpn, coordinateX);
                 coordinatesX.Add(coordinateX);
                 coordinatesY.Add(coordinateY);
                 coordinateX += step_X;
             }
 
-            Draw_Graphic(coordinatesX, coordinatesY, scale_x);
+            DrawGraphic(coordinatesX, coordinatesY, scale_x);
         }
 
 
@@ -70,7 +70,7 @@ namespace WpfCalc
             double endstepX = Convert.ToDouble(endX.Text);
             double step_x = Convert.ToDouble(stepX.Text);
             int scaleX = Convert.ToInt32(scale.Text);
-            string rpn = Infix_To_RPN.InfixToRPN(expression1);
+            string rpn = ConvertingToRPN.InfixToRPN(expression1);
 
             Сalculating_Coordinates(rpn, beginstepX, endstepX, step_x, scaleX);
         }

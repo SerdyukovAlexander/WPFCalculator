@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfCalc
 {
-    public class Infix_To_RPN
+    public class ConvertingToRPN
     {
         public static string InfixToRPN(string infix)
         {
@@ -17,13 +17,13 @@ namespace WpfCalc
             string expUpdate = "";
             if (!infix.Contains("sin") && !infix.Contains("cos") && !infix.Contains("tan") && !infix.Contains("ctn") && !infix.Contains("sqr") && !infix.Contains("srt") && !infix.Contains("log"))
             {
-                for (int i = 0; i<infix.Length; i++)
+                for (int i = 0; i < infix.Length; i++)
                 {
                     if (allNumbers.Contains(infix[i]))
                     {
                         expUpdate += infix[i];
                     }
-                    else if (allOperators.Contains(infix[i]) || Convert.ToString(infix[i])=="(" || Convert.ToString(infix[i]) == ")")
+                    else if (allOperators.Contains(infix[i]) || Convert.ToString(infix[i]) == "(" || Convert.ToString(infix[i]) == ")")
                     {
                         expUpdate += " " + infix[i] + " ";
                     }

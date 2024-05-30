@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfCalc
 {
-    public class Calculate_RPN
+    public class CalculationRPN
     {
         public static double CalculateRPN(string rpn, double coordinate_X)
         {
@@ -19,7 +19,7 @@ namespace WpfCalc
                 {
                     numberStack.Push(number);
                 }
-                else if (token=="")
+                else if (token == "")
                 {
                     continue;
                 }
@@ -41,26 +41,26 @@ namespace WpfCalc
                         cnt += 1;
                     }
                     cnt += 1;
-                    while (cnt < tokenstr.Length-1)
+                    while (cnt < tokenstr.Length - 1)
                     {
                         b += tokenstr[cnt];
                         cnt += 1;
                     }
 
-                    a = Infix_To_RPN.InfixToRPN(a);
-                    b = Infix_To_RPN.InfixToRPN(b);
+                    a = ConvertingToRPN.InfixToRPN(a);
+                    b = ConvertingToRPN.InfixToRPN(b);
                     double a1 = CalculateRPN(a, coordinate_X);
                     double b1 = CalculateRPN(b, coordinate_X);
                     if (token.Substring(0, 3) == "log")
                     {
                         numberStack.Push(Math.Log(b1, a1));
                     }
-                    if (token.Substring(0,3) == "srt")
+                    if (token.Substring(0, 3) == "srt")
                     {
-                        numberStack.Push(Math.Pow(b1, 1/a1));
+                        numberStack.Push(Math.Pow(b1, 1 / a1));
                     }
                 }
-                else if (token.Length>3 && (token.Substring(0, 3) == "sin" || token.Substring(0, 3) == "cos" || token.Substring(0, 3) == "tan" || token.Substring(0, 3) == "ctn" || token.Substring(0, 3) == "sqr"))
+                else if (token.Length > 3 && (token.Substring(0, 3) == "sin" || token.Substring(0, 3) == "cos" || token.Substring(0, 3) == "tan" || token.Substring(0, 3) == "ctn" || token.Substring(0, 3) == "sqr"))
                 {
                     string numInside = "";
 
@@ -80,7 +80,7 @@ namespace WpfCalc
                         }
                     }
 
-                    numInside = Infix_To_RPN.InfixToRPN(numInside);
+                    numInside = ConvertingToRPN.InfixToRPN(numInside);
                     double intoNumber = CalculateRPN(numInside, coordinate_X);
 
                     switch (Convert.ToString(token.Substring(0, 3)))
