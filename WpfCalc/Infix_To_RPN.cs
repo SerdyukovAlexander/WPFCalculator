@@ -10,10 +10,9 @@ namespace WpfCalc
     {
         public static string InfixToRPN(string infix)
         {
-            //log(10,sin(x^2)) или (х*4,5-6*(12-4)) => (x * 4,5 - 6 * ( 12 - 4 ))
-            //метод для нормального разделения токенов
             string allNumbers = "0123456789,x";
-            string allOperators = "+-*/^()";
+            string allOperators = "+-*/^";
+            string wordInExpression = "sincotagrl";
             string[] tokens = new string[1];
             string expUpdate = "";
             if (!infix.Contains("sin") && !infix.Contains("cos") && !infix.Contains("tan") && !infix.Contains("ctn") && !infix.Contains("sqr") && !infix.Contains("srt") && !infix.Contains("log"))
@@ -24,7 +23,7 @@ namespace WpfCalc
                     {
                         expUpdate += infix[i];
                     }
-                    else if (allOperators.Contains(infix[i]))
+                    else if (allOperators.Contains(infix[i]) || Convert.ToString(infix[i])=="(" || Convert.ToString(infix[i]) == ")")
                     {
                         expUpdate += " " + infix[i] + " ";
                     }
@@ -33,7 +32,18 @@ namespace WpfCalc
             }
             else
             {
-                tokens[0] = infix;
+                for (int k = 0; k < infix.Length; k++)
+                {
+                    if (allOperators.Contains(infix[k]))
+                    {
+                        expUpdate += " " + infix[k] + " ";
+                    }
+                    else
+                    {
+                        expUpdate += infix[k];
+                    }
+                }
+                tokens = expUpdate.Split(' ');
             }
 
             string rpn = "";

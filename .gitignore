@@ -15,3 +15,7 @@ WpfCalc/obj/Debug/App.g.i.cs
 WpfCalc/obj/Debug/App.g.cs
 WpfCalc/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 *.vsidx
+.vs/WpfCalc/v17/.suo
+.vs/WpfCalc/v17/DocumentLayout.json
+WpfCalc/obj/Debug/MainWindow.baml
+WpfCalc/obj/Debug/WpfCalc.g.resources

@@ -11,7 +11,6 @@ namespace WpfCalc
         public static double CalculateRPN(string rpn, double coordinate_X)
         {
             string[] tokens = rpn.Split(' ');
-            string word_in_exp = "cosintalgrq";
             Stack<double> numberStack = new Stack<double>();
 
             foreach (string token in tokens)
@@ -29,7 +28,7 @@ namespace WpfCalc
                 {
                     numberStack.Push(coordinate_X);
                 }
-                //log(a,b) srt(a,b)
+
                 else if (token.Length > 3 && (token.Substring(0, 3) == "log" || token.Substring(0, 3) == "srt"))
                 {
                     string tokenstr = Convert.ToString(token);
@@ -128,7 +127,6 @@ namespace WpfCalc
                             break;
                     }
                 }
-                //
             }
 
             return numberStack.Count > 0 ? numberStack.Peek() : 0;
