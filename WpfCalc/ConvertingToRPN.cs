@@ -63,11 +63,10 @@ namespace WpfCalc
                     }
                 }
             }
-            tokens = expUpdate.Split(' ');
 
+            tokens = expUpdate.Split(' ');
             string rpn = "";
             Stack<string> operatorStack = new Stack<string>();
-
             Dictionary<string, int> precedence = new Dictionary<string, int>
             {
                 { "+", 1 },

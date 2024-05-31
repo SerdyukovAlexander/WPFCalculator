@@ -26,3 +26,14 @@ WpfCalc/Infix_To_RPN.cs
 App.xaml
 *.resources
 App.xaml.cs
+*.xml
+*.p7s
+*.png
+*.nupkg
+*.config
+*.Up2Date
+*.lref
+*.exe
+App.config
+App.xaml
+*.resources

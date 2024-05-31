@@ -1,8 +1,8 @@
 ﻿using System;
+using OxyPlot;
+using OxyPlot.Series;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-using DataVis = System.Windows.Forms.DataVisualization;
+using OxyPlot.Axes;
+using OxyPlot.Wpf;
 
 
 namespace WpfCalc
@@ -34,13 +34,48 @@ namespace WpfCalc
         
         private void DrawGraphic(List<double> coordinates_x, List<double> coordinates_y, int m)
         {
-            Chart1.Series[0].Points.Clear();
-            Chart1.Series[0].ChartType = DataVis.Charting.SeriesChartType.Line;
+            var lineSeries = new LineSeries
+            {
+                StrokeThickness = 2,
+                Color = OxyColors.Black
+            };
 
             for (int i = 0; i < coordinates_x.Count; i++)
             {
-                this.Chart1.Series[0].Points.AddXY((coordinates_x[i]) * m, (coordinates_y[i]) * m);
+                lineSeries.Points.Add(new DataPoint(coordinates_x[i]*m, coordinates_y[i]*m));
             }
+
+            var plotModel = new PlotModel();
+            plotModel.Series.Add(lineSeries);
+            plotModel.PlotAreaBorderThickness = new OxyThickness(0.5);
+            plotModel.PlotAreaBorderColor = OxyColors.BlueViolet;
+            plotModel.PlotMargins = new OxyThickness(1);
+
+            LinearAxis linearAxis = new LinearAxis
+            {
+                Title = "y",
+                TitlePosition = 0.05,
+                AxisTitleDistance = 15,
+                Maximum = 10,
+                Minimum = -10,
+                PositionAtZeroCrossing = true,
+            };
+
+            plotModel.Axes.Add(linearAxis);
+
+            LinearAxis secondLinearAxis = new LinearAxis
+            {
+                Title = "x",
+                TitlePosition = 0.01,
+                AxisTitleDistance = 15,
+                Maximum = 15,
+                Minimum = -15,
+                PositionAtZeroCrossing = true,
+                Position = AxisPosition.Bottom,
+            };
+
+            plotModel.Axes.Add(secondLinearAxis);
+            plotView.Model = plotModel;
 
         }
 
@@ -53,6 +88,7 @@ namespace WpfCalc
             while (coordinateX <= endSt)
             {
                 double coordinateY = CalculationRPN.CalculateRPN(str_rpn, coordinateX);
+                coordinateY = Math.Round(coordinateY, 3);
 
                 if (!double.IsInfinity(coordinateY))
                 {

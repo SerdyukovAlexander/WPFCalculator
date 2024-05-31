@@ -1,13 +1,14 @@
 ﻿<Window x:Class="WpfCalc.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:oxyPlot="using: OxyPlot.Windows"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCalc"
-        xmlns:wf="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
         mc:Ignorable="d"
         Title="Calculator" Height="600" Width="950">
-    <Grid x:Name="MainRoot" Background="#4C5866">
+    <Grid x:Name="MainRoot" Background="#4C5866" Margin="0,0,0,0" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -23,6 +24,7 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
+
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Введите выражение:" Margin="25,0,0,80" FontFamily="Impact" Foreground="#0ABAB5" />
         <TextBox x:Name="inputExpression" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,0,70"  SelectionBrush="#0ABAB5" >
             <TextBox.Background>
@@ -67,28 +69,9 @@
             </TextBox.Background>
         </TextBox>
 
-
-        <Canvas x:Name="graphCanvas" Width="501" Height="301" Margin="82,79,118,10" Grid.ColumnSpan="5" Grid.RowSpan="4" Background="White" RenderTransformOrigin="0.502,0.518" >
-
-            <Grid HorizontalAlignment="Left" Height="301" Canvas.Left="-10" VerticalAlignment="Top" Width="511" >
-                <WindowsFormsHost Margin="9,0,0,-1">
-                    <wf:Chart x:Name="Chart1" >
-                        <wf:Chart.Series>
-                            <wf:Series ChartType="Column"/>
-                        </wf:Chart.Series>
-                        <wf:Chart.ChartAreas>
-                            <wf:ChartArea/>
-                        </wf:Chart.ChartAreas>
-                    </wf:Chart>
-                </WindowsFormsHost>
-            </Grid>
-
-        </Canvas>
-
-
+        <oxy:PlotView x:Name="plotView" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,97,0,0" Grid.RowSpan="4" />
 
 
         <Button Grid.Column="1" Grid.Row="4" Content="Вычисление" Margin="122,10,18,60" Click="Showresult_Click" Background="#4C5866" FontFamily="Impact" Foreground="#0ABAB5" Grid.ColumnSpan="2"/>
-
     </Grid>
 </Window>
