@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfCalc
 {
-    public class ConvertingToRPN
+    public partial class MainWindow : Window
     {
-        public static string InfixToRPN(string infix)
+        public static string ConvertingToRPN(string infix)
         {
             string allNumbers = "0123456789";
             string allOperators = "+-*/^";
@@ -117,9 +118,33 @@ namespace WpfCalc
                     rpn += "x" + " ";
                 }
 
-                else if (token.Contains("sin") || token.Contains("cos") || token.Contains("tan") || token.Contains("ctn") || token.Contains("log") || token.Contains("sqr") || token.Contains("srt"))
+                else if (token.Length>3 && token.Substring(0,3)=="sin")
                 {
                     rpn += token + " ";
+                }
+                else if (token.Length>3 && token.Substring(0,3)=="cos")
+                {
+                    rpn += token + " ";
+                }
+                else if (token.Length>3 && token.Substring(0,3)=="tan")
+                {
+                    rpn += token + " ";
+                }
+                else if (token.Length>3 && token.Substring(0,3)=="ctn")
+                {
+                    rpn += token + " ";
+                }
+                else if (token.Length>3 && token.Substring(0,3)=="log")
+                {
+                    rpn += token + " ";
+                }
+                else if (token.Length>3 && token.Substring(0,3)=="sqr")
+                {
+                    rpn += token + " ";
+                }
+                else if (token.Length>3 && token.Substring(0,3)=="srt")
+                {
+                    rpn+= token + " ";
                 }
             }
 

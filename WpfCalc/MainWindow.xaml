@@ -72,6 +72,6 @@
         <oxy:PlotView x:Name="plotView" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,97,0,0" Grid.RowSpan="4" />
 
 
-        <Button Grid.Column="1" Grid.Row="4" Content="Вычисление" Margin="122,10,18,60" Click="Showresult_Click" Background="#4C5866" FontFamily="Impact" Foreground="#0ABAB5" Grid.ColumnSpan="2"/>
+        <Button Grid.Column="1" Grid.Row="4" Content="Вычисление" Margin="122,10,18,60" Click="ConvertingInputData" Background="#4C5866" FontFamily="Impact" Foreground="#0ABAB5" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

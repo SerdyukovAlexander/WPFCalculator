@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfCalc
 {
-    public class CalculationRPN
+    public partial class MainWindow : Window
     {
-        public static double CalculateRPN(string rpn, double coordinate_X)
+        public static double CalculationRPN(string rpn, double coordinate_X)
         {
             string[] tokens = rpn.Split(' ');
             Stack<double> numberStack = new Stack<double>();
@@ -47,10 +48,10 @@ namespace WpfCalc
                         cnt += 1;
                     }
 
-                    a = ConvertingToRPN.InfixToRPN(a);
-                    b = ConvertingToRPN.InfixToRPN(b);
-                    double a1 = CalculateRPN(a, coordinate_X);
-                    double b1 = CalculateRPN(b, coordinate_X);
+                    a = ConvertingToRPN(a);
+                    b = ConvertingToRPN(b);
+                    double a1 = CalculationRPN(a, coordinate_X);
+                    double b1 = CalculationRPN(b, coordinate_X);
                     if (token.Substring(0, 3) == "log")
                     {
                         numberStack.Push(Math.Log(b1, a1));
@@ -60,6 +61,7 @@ namespace WpfCalc
                         numberStack.Push(Math.Pow(b1, 1 / a1));
                     }
                 }
+
                 else if (token.Length > 3 && (token.Substring(0, 3) == "sin" || token.Substring(0, 3) == "cos" || token.Substring(0, 3) == "tan" || token.Substring(0, 3) == "ctn" || token.Substring(0, 3) == "sqr"))
                 {
                     string numInside = "";
@@ -80,8 +82,8 @@ namespace WpfCalc
                         }
                     }
 
-                    numInside = ConvertingToRPN.InfixToRPN(numInside);
-                    double intoNumber = CalculateRPN(numInside, coordinate_X);
+                    numInside = ConvertingToRPN(numInside);
+                    double intoNumber = CalculationRPN(numInside, coordinate_X);
 
                     switch (Convert.ToString(token.Substring(0, 3)))
                     {
