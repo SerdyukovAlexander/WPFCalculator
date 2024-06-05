@@ -64,7 +64,9 @@ namespace WpfCalc
 
                 else if (token.Length > 3 && (token.Substring(0, 3) == "sin" || token.Substring(0, 3) == "cos" || token.Substring(0, 3) == "tan" || token.Substring(0, 3) == "ctn" || token.Substring(0, 3) == "sqr"))
                 {
+                    string tokenStr = Convert.ToString(token);
                     string numInside = "";
+                    double intoNumber;
 
                     for (int i = 4; i < token.Length - 1; i++)
                     {
@@ -83,25 +85,27 @@ namespace WpfCalc
                     }
 
                     numInside = ConvertingToRPN(numInside);
-                    double intoNumber = CalculationRPN(numInside, coordinate_X);
+                    intoNumber = CalculationRPN(numInside, coordinate_X);
 
-                    switch (Convert.ToString(token.Substring(0, 3)))
+                    if (token.Substring(0,3)=="sin")
                     {
-                        case "sin":
-                            numberStack.Push(Math.Sin(intoNumber));
-                            break;
-                        case "cos":
-                            numberStack.Push(Math.Cos(intoNumber));
-                            break;
-                        case "tan":
-                            numberStack.Push(Math.Tan(intoNumber));
-                            break;
-                        case "ctn":
-                            numberStack.Push(Math.Cos(intoNumber) / Math.Sin(intoNumber));
-                            break;
-                        case "sqr":
-                            numberStack.Push(Math.Sqrt(intoNumber));
-                            break;
+                        numberStack.Push(Math.Sin(intoNumber));
+                    }
+                    else if (token.Substring(0,3)=="cos")
+                    {
+                        numberStack.Push(Math.Cos(intoNumber));
+                    }
+                    else if (token.Substring(0,3)=="tan")
+                    {
+                        numberStack.Push(Math.Tan(intoNumber));
+                    }
+                    else if (token.Substring(0,3)=="ctn")
+                    {
+                        numberStack.Push(Math.Cos(intoNumber) / Math.Sin(intoNumber));
+                    }
+                    else if (token.Substring(0,3)=="sqr")
+                    {
+                        numberStack.Push(Math.Sqrt(intoNumber));
                     }
                 }
 
@@ -110,23 +114,25 @@ namespace WpfCalc
                     double operand2 = numberStack.Pop();
                     double operand1 = numberStack.Pop();
 
-                    switch (token)
+                    if (token=="+")
                     {
-                        case "+":
-                            numberStack.Push(operand1 + operand2);
-                            break;
-                        case "-":
-                            numberStack.Push(operand1 - operand2);
-                            break;
-                        case "*":
-                            numberStack.Push(operand1 * operand2);
-                            break;
-                        case "/":
-                            numberStack.Push(operand1 / operand2);
-                            break;
-                        case "^":
-                            numberStack.Push(Math.Pow(operand1, operand2));
-                            break;
+                        numberStack.Push(operand1 + operand2);
+                    }
+                    else if (token=="-")
+                    {
+                        numberStack.Push(operand1 - operand2);
+                    }
+                    else if (token=="*")
+                    {
+                        numberStack.Push(operand1 * operand2);
+                    }
+                    else if (token=="/")
+                    {
+                        numberStack.Push(operand1 / operand2);
+                    }
+                    else if (token=="^")
+                    {
+                        numberStack.Push(Math.Pow(operand1, operand2));
                     }
                 }
             }
