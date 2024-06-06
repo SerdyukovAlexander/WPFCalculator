@@ -9,62 +9,69 @@ namespace WpfCalc
 {
     public partial class MainWindow : Window
     {
-        public static string ConvertingToRPN(string infix)
+        public static string ProcessingInputString(string input)
         {
+            string inputStr = input;
             string allNumbers = "0123456789";
             string allOperators = "+-*/^";
             string wordInExpression = "sincotagrl";
-            string[] tokens = new string[1];
-            string expUpdate = "";
-            
-            for (int i = 0; i<infix.Length; i++)
+            string resultStr = "";
+
+            for (int i = 0; i < inputStr.Length; i++)
             {
-                if (allNumbers.Contains(infix[i]))
+                if (allNumbers.Contains(inputStr[i]))
                 {
-                    expUpdate += infix[i];
+                    resultStr += inputStr[i];
                 }
-                else if (allOperators.Contains(infix[i]))
+                else if (allOperators.Contains(inputStr[i]))
                 {
-                    expUpdate +=" " + infix[i] + " ";
+                    resultStr += " " + inputStr[i] + " ";
                 }
-                else if (infix[i]=='x')
+                else if (inputStr[i] == 'x')
                 {
-                    expUpdate += "x";
+                    resultStr += "x";
                 }
-                else if (infix[i]=='(' || infix[i]==')')
+                else if (inputStr[i] == '(' || inputStr[i] == ')')
                 {
-                    expUpdate += infix[i];
+                    resultStr += inputStr[i];
                 }
-                else if (wordInExpression.Contains(infix[i]))
+                else if (wordInExpression.Contains(inputStr[i]))
                 {
                     int cntOpenBrackets = 0;
                     int cntCloseBrackets = 0;
                     while (true)
                     {
-                        if (infix[i]=='(')
+                        if (inputStr[i] == '(')
                         {
                             cntOpenBrackets += 1;
-                            expUpdate += infix[i];
+                            resultStr += inputStr[i];
                             i += 1;
                         }
-                        else if (infix[i]==')')
+                        else if (inputStr[i] == ')')
                         {
                             cntCloseBrackets += 1;
-                            expUpdate += infix[i];
-                            if (cntOpenBrackets==cntCloseBrackets)
+                            resultStr += inputStr[i];
+                            if (cntOpenBrackets == cntCloseBrackets)
                                 break;
                             i += 1;
                         }
                         else
                         {
-                            expUpdate += infix[i];
+                            resultStr += inputStr[i];
                             i += 1;
                         }
-                        
+
                     }
                 }
             }
 
+            return resultStr;
+        }
+        public static string ConvertingToRPN(string infix)
+        {
+            
+            string[] tokens = new string[1];
+            string expUpdate = ProcessingInputString(infix);
             tokens = expUpdate.Split(' ');
             string rpn = "";
             Stack<string> operatorStack = new Stack<string>();
